@@ -1,0 +1,181 @@
+<!Doctype html>
+<html>
+<head>
+<title>KEKUASAAN</title>
+<script type="text/javascript">
+
+
+function mulaFungsi(){
+	
+	
+	
+	var btr = document.getElementById("btr").value / 1;
+	var type = document.getElementById("jenis").selectedIndex; //0 utk 2900, 1 untuk 3000
+	
+		
+	if(type==0){
+	
+	
+	//FORMULA 2900
+	var total1 = 1.69*(100-btr);
+	var d = new Date();
+	var n = d.getMinutes();	//tarik minit now
+	total1 = total1+n;	//tambah total dgn minit
+
+	var m = d.getHours();	// tarik jam now
+	var totalminit = m*60;	// jam ke minit
+
+	var total3 = totalminit + total1;
+	var total4 = total3/60;	//nilai akhir 1
+	
+
+	var total5 = total4 - Math.floor(total4);
+	var total6 = total5*60;	//total minit
+
+	var total7 = Math.floor(total4);
+
+	if(total7 >= 24){total7=total7-24;} //fix jam lebih 24
+
+	document.getElementById("jawapanout").innerHTML = " PUKUL = " + total7 + " : " + Math.floor(total6) + " ";		
+		
+	}
+	
+	else {
+	
+	
+	//FORMULA 3000
+	var total1 = 1.64*(100-btr);
+
+	var d = new Date();
+	var n = d.getMinutes();	//tarik minit now
+	total1 = total1+n;	//tambah total dgn minit
+
+	var m = d.getHours();	// tarik jam now
+	var totalminit = m*60;	// jam ke minit
+
+	var total3 = totalminit + total1;
+	var total4 = total3/60;	//nilai akhir 1
+	
+
+	var total5 = total4 - Math.floor(total4);
+	var total6 = total5*60;	//total minit
+
+	var total7 = Math.floor(total4);
+
+	if(total7 >= 24){total7=total7-24;} //fix jam lebih 24
+
+	document.getElementById("jawapanout").innerHTML = " PUKUL = " + total7 + " : " + Math.floor(total6) + " ";
+	
+	}
+	
+}
+
+</script>
+
+<style>
+
+body{
+
+color:black;
+font-family:calibri;
+font-size:15px;
+}
+
+p{
+
+color:black;
+font-family:calibri;
+text-align:left;
+font-size:15px;
+}
+
+p.din{
+
+color:blue;
+font-family:calibri;
+text-align:left;
+font-size:18px;
+}
+
+b{
+color:red;
+}
+
+b.tajuk{
+color:blue;
+}
+
+table {
+padding:5px;
+border: 5px solid black;
+}
+
+tr,td{
+border: 0px;
+}
+
+a{
+font-family:calibri;
+font-size:15px;
+text-decoration: underline;
+color:blue;
+}
+
+a:hover{
+font-family:calibri;
+font-size:15px;
+text-decoration: none;
+color:red;
+}
+
+button{
+height:30px; 
+width:80px;
+}
+
+</style>
+</head>
+<body bgcolor="lightblue">
+
+<table border="1" width=auto bgcolor="#C0FFD4"><!--#66FF66#E0F0F8-->
+<tr>
+<td>
+
+<center><h2> KEKUASAAN </h2>
+<h3> Unplug bila penuh</h3></center>
+
+
+<form id="isi1" runat="server">
+
+	<br>
+	
+	Bateri : <select id="jenis">
+		<option value="mah29">2900 mah</option>
+		<option value="mah30">3000 mah</option>
+	</select>
+	<br><BR>
+	 
+PERATUS BATERI: <input type="text" id="btr" value=0 size="5"><br>
+	
+</form>
+
+
+<br>
+<center><button onclick="mulaFungsi()"> Enter </button></center>
+<br>
+<P><b class="tajuk">MASA BATERI PENUH <br>(24 Hours format)</b></P>
+<b><p id="jawapanout" class="din"></p></b>
+<center>
+
+<br>
+	 
+
+<a href="#">Refresh page to Reset<br></a>
+Version 1.3</center>
+
+</td>
+</tr>
+</table>
+<!--dibuat oleh zahiruddin, Naqiuddin 17 Mac 2016-->
+</body>
+</html>
